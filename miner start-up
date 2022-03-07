@@ -1,0 +1,9 @@
+sudo apt update
+cd ~/.bittensor/subtensor
+sudo docker-compose up
+sudo docker-compose up
+sudo docker-compose up -d
+btcli regen_coldkey
+btcli new_hotkey
+btcli register
+pm2 start ~/.bittensor/bittensor/bittensor/_neuron/text/advanced_server/main.py --name miner --time --interpreter python3 -- --logging.debug --subtensor.network local --neuron.model_name rbhushan/distilgpt2-finetuned-wikitext2 --server.padding false --server.blocks_per_epoch 1 --server.restart true --wallet.name bittensormining --wallet.hotkey btas-002 --server.blacklist.stake 1500
