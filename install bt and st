@@ -1,0 +1,46 @@
+### 2.1 Install Bittensor
+
+```python
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/opentensor/bittensor/master/scripts/install.sh)"
+```
+
+### 2.2 Install Subtensor
+
+```python
+sudo apt-get update && sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+```
+
+```python
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+
+```python
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+```python
+sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io && sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose && git clone https://github.com/opentensor/subtensor.git ~/.bittensor/subtensor && cd ~/.bittensor/subtensor && docker-compose up -d && cd
+```
+
+### 2.3 Install pm2, tmux and htop
+sudo apt update && sudo apt-get install git && sudo apt-get install build-essential && sudo apt-get install curl openssl libssl-dev && sudo apt install npm -y && sudo npm install pm2@latest -g && apt install tmux && apt install htop
+
+4.1.1 Update Bittensor
+git -C ~/.bittensor/bittensor pull origin master && python3 -m pip install -e ~/.bittensor/bittensor
+
+## 4.2 SUBTENSOR
+
+### 4.2.1 Update Subtensor and restart
+
+```python
+cd ~/.bittensor/subtensor && docker-compose down && git pull && docker-compose up -d && cd
+```
+
+### 4.2.2 Remove all docker images and restart
+cd ~/.bittensor/subtensor && docker system prune -a && docker-compose up -d && cd
