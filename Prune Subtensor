@@ -1,0 +1,5 @@
+I would recommend deleting some stuff or to prune your subtensor
+[4:58 PM]
+1. cd ~/.bittensor/subtensor
+2. docker system prune -a
+3. docker-compose up -d
